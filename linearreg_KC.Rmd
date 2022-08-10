@@ -1,7 +1,15 @@
+---
+title: "Project 2 Linear Regression"
+author: "Brandtly Jones"
+date: '2022-08-09'
+output: html_document
+---
+
+
 ```{r}
 #import data
 library(tidyverse)
-
+library(corrplot)
 data<-as_tibble(read.csv("~/MSDS/STAT6021/Project2/kc_house_data.csv"))
 
 ```
@@ -102,7 +110,7 @@ before proceding, we will split our data into a training and test set with an 80
 
 ```{r}
 set.seed(206)
-samp<-sample.int(nrow(Data), floor(.80*nrow(Data)), replace = F)
+samp<-sample.int(nrow(data), floor(.80*nrow(data)), replace = F)
 train<-data[samp, ] ##training data frame
 test<-data[-samp, ] ##test data frame
 ```
